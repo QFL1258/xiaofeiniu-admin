@@ -1,4 +1,3 @@
-
 <template>
   <div class="login">
     <el-card class="xfn-login-card">
@@ -8,11 +7,9 @@
           <el-form-item label="管理员名：">
             <el-input v-model="formData.aname" placeholder="请输入管理员名"></el-input>
           </el-form-item>
-
           <el-form-item label="登录密码：">
             <el-input type="password" v-model="formData.apwd" placeholder="请输入管理员密码"></el-input>
           </el-form-item>
-
           <el-form-item>
               <el-button type="primary" @click="doLogin">登录</el-button>
               <el-button @click="doCancel">取消</el-button>
@@ -46,9 +43,11 @@ export default {
             //然后在跳转到main中
             this.$router.push('/main');
           }else{//登录失败
-            this.$alert('用户名或密码有误!','登录失败',{type:'error'})
-            this.formData.aname="";
-            this.formData.apwd="";
+            this.$alert('用户名或密码有误!','登录失败',{type:'error'}).then(()=>{
+
+            }).catch(()=>{
+
+            })
           }
       }).catch((err)=>{
         console.log(err)
@@ -59,15 +58,6 @@ export default {
       this.formData.apwd="";
     },
   },
-  mounted(){
-    //当前组件挂载完成后需要异步请求全局配置数据
-    var url = this.$store.state.globalSettings.apiUrl+'/admin/settings';
-    this.$axios.get(url).then((res)=>{
-      this.$store.commit('setGlobalSettings',res.data);
-    }).catch((err)=>{
-      console.log(err);
-    })
-  }
 }
 </script>
 
