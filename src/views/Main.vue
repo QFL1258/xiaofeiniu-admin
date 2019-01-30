@@ -1,5 +1,7 @@
 <template>
   <div class="main">
+    欢迎回来：
+    {{$store.state.adminName}}
     <h1>MAIN</h1>
     <div>左侧的导航菜单</div>
     <div>上方的提示栏</div>
