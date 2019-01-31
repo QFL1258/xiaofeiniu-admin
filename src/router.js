@@ -45,7 +45,7 @@ export default new Router({
         {path:'/dish/delete',component:DishDelete},
         {path:'/dish/update',component:DishUpdate},
         {path:'/order/list',component:OrderList},
-        {path:'/security',component:Security},
+        {path:'/security',component:Security}, 
       ]
     },
     { path: '*', component: NotFound },
