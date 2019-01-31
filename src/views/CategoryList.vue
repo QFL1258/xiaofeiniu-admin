@@ -58,13 +58,14 @@ export default {
       })
     },
     updateCategory(c,i){
+      
       this.$prompt('请输入您想修改的类别名：','提示',{inputValue:c.cname}).then(({value})=>{
         var url=this.$store.state.globalSettings.apiUrl+'/admin/category';
         this.$axios.put(url,{cname:value,cid:c.cid}).then((res)=>{
           console.log(res.data)
           if(res.data.code==200){
+            // this.categoryList.splice(i,1,value);  
             this.$message.success('菜品修改成功！');
-            // this.categoryList.splice(i,c,value)
           }else{
             this.$message.error('菜品修改出错：'+res.data.msg)
           }
