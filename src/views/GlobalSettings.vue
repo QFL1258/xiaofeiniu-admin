@@ -75,7 +75,7 @@ export default {
         console.log(res)
         if(res.data.code==200){
           this.$message.success('全局设置修改成功！');
-          ///TODD：修改$store中的全局设置
+          ///TODD：修改$store中的全局设置  
         }else{
           this.$message.error('全局设置修改失败！')
         }
