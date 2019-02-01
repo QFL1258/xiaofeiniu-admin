@@ -28,8 +28,7 @@ export default {
     doUploadSucc(res,file){
       //文件上传成功后,客户端得到响应消息之后的处理函数
       //res:服务器端返回的响应消息
-      //file:从input[type=file]中读取的第一个上传的文件对象
-
+      //file:从input[type=file]中读取的第一个上传的文件对象;
       console.log(res);
       this.formData.imgUrl=res.fileName;
       this.imageUrl=URL.createObjectURL(file.raw);
