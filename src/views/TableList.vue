@@ -7,7 +7,7 @@
     </el-breadcrumb>
     <br>
     <el-row>
-      <el-col v-for='n in 48' :xs='12' :sm='8' :md='6' :lg='4' :xl='2' :key='n.nid'>
+      <el-col v-for='t in tableList' :xs='12' :sm='8' :md='6' :lg='4' :xl='2' :key='t.nid'>
         <xfn-table :data='t'></xfn-table>
       </el-col>
     </el-row>
@@ -20,6 +20,15 @@ export default {
     return {
       tableList:[]
     }
+  },
+  mounted(){
+    //加载桌台列表
+    var url = this.$store.state.globalSettings.apiUrl+'/admin/table';
+    this.$axios.get(url).then(({data})=>{//数据结构 之前是res 直接放data相当于res.data
+      this.tableList=data;
+    }).catch((err)=>{
+      console.log(err)
+    })   
   },
   components:{
     'xfn-table':Table
